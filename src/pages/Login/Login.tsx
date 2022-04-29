@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { usePasswordCover } from '../../hooks/usePasswordCover';
 
 export const Login = () => {
-   const [passwordCovered, setPasswordCovered] = useState(true);
+   const [passwordCovered, togglePasswordCover] = usePasswordCover();
 
    return (
       <>
@@ -22,7 +23,7 @@ export const Login = () => {
                         <span
                            onClick={(e) => {
                               e.stopPropagation();
-                              setPasswordCovered((prev) => !prev);
+                              togglePasswordCover();
                            }}
                            className="material-icons-round select-none absolute right-3 top-1/2 -translate-y-1/2 text-neutral-60"
                         >

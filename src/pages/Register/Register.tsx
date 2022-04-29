@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { usePasswordCover } from '../../hooks/usePasswordCover';
 
 export const Register = () => {
-   const [passwordCovered, setPasswordCovered] = useState(true);
+   const [passwordCovered, togglePasswordCover] = usePasswordCover();
    return (
       <>
          <form className="ml-24" action="">
@@ -36,7 +37,7 @@ export const Register = () => {
                         <span
                            onClick={(e) => {
                               e.stopPropagation();
-                              setPasswordCovered((prev) => !prev);
+                              togglePasswordCover();
                            }}
                            className="material-icons-round select-none absolute right-3 top-1/2 -translate-y-1/2 text-neutral-60"
                         >
