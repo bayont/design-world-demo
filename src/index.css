@@ -6,7 +6,7 @@ body {
    @apply m-0 bg-neutral-99 antialiased font-body text-neutral-10;
    background-image: url('../public/bg-photo.png');
    background-repeat: no-repeat;
-   background-position: 100% 20%;
+   background-position: 100% 0%;
 }
 
 code {
