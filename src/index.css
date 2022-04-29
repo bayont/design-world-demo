@@ -1,13 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+   @apply m-0 bg-neutral-99 antialiased font-body text-neutral-10;
+   background-image: url('../public/bg-photo.png');
+   background-repeat: no-repeat;
+   background-position: 100% 20%;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+}
+input {
+   @apply block;
+}
+
+input[type='text'],
+input[type='password'] {
+   @apply border border-neutral-90 rounded-lg p-4 font-medium text-base text-neutral-60 bg-inherit;
+}
+
+input[type='checkbox'] {
+   display: block;
+   @apply relative appearance-none w-6 aspect-square bg-[#C4C4C4] rounded-lg border-none outline-none transition-colors;
+}
+
+input[type='checkbox']:checked {
+   @apply bg-neutral-20;
+}
+
+input[type='checkbox'] + div {
+   @apply pointer-events-none opacity-0 content-none absolute left-1/2 top-[calc(50%-2px)] h-4 w-2 border-b-2 border-r-2 border-primary-hover rotate-45 -translate-y-1/2 -translate-x-1/2 transition-opacity;
+}
+
+input[type='checkbox']:active + div {
+   @apply opacity-100 border-primary-main;
+}
+
+input[type='checkbox']:checked + div {
+   @apply opacity-100;
+}
+
+a {
+   @apply font-semibold text-primary-main hover:text-primary-hover;
+}
+
+input[type='submit'] {
+   @apply text-center bg-primary-main p-4 rounded-lg cursor-pointer transition-colors hover:bg-primary-hover active:bg-primary-pressed;
+}
+
+button {
+   @apply text-center p-4 rounded-lg cursor-pointer bg-neutral-90 transition-colors hover:bg-neutral-80 active:bg-neutral-70;
 }
