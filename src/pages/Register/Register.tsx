@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Register = () => {
    const [passwordCovered, setPasswordCovered] = useState(true);
@@ -53,8 +54,8 @@ export const Register = () => {
                         <div className="checkmark"></div>
                      </div>
                      <p>
-                        I agree with <a href="">Terms of Service</a> and{' '}
-                        <a href="">Privacy Policy</a>
+                        I agree with <Link to="/tos">Terms of Service</Link> and{' '}
+                        <Link to="/privacy-policy">Privacy Policy</Link>
                      </p>
                   </div>
 
@@ -62,7 +63,7 @@ export const Register = () => {
 
                   <button>Login with Google</button>
                   <div className="text-center">
-                     Already a Member? <a href="/login">Login</a>
+                     Already a Member? <Link to="/login">Login</Link>
                   </div>
                </div>
             </section>
