@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { usePasswordCover } from '../../hooks/usePasswordCover';
+import { GoogleLoginButton } from '../../components/Button/GoogleLoginButton';
+import { Checkbox } from '../../components/Input/Checkbox';
+import { Mail } from '../../components/Input/Mail';
+import { Password } from '../../components/Input/Password';
+import { Submit } from '../../components/Input/Submit';
+import { Text } from '../../components/Input/Text';
 
 export const Register = () => {
-   const [passwordCovered, togglePasswordCover] = usePasswordCover();
    return (
       <>
          <form className="ml-24" action="">
@@ -14,45 +18,18 @@ export const Register = () => {
             <section className="max-w-xl mt-5">
                <div className="flex flex-col gap-y-5">
                   <div className="flex gap-x-5">
-                     <input
-                        className="w-full"
-                        type="text"
-                        placeholder="First name"
-                     />
-                     <input
-                        className="w-full"
-                        type="text"
-                        placeholder="Last name"
-                     />
+                     <Text placeholder="First name" />
+                     <Text placeholder="Last name" />
                   </div>
-                  <input type="text" placeholder="Email" />
+
+                  <Mail placeholder="Email" />
 
                   <div className="relative">
-                     <input
-                        className="w-full"
-                        type={passwordCovered ? 'password' : 'text'}
-                        placeholder="Password"
-                     />
-                     <div>
-                        <span
-                           onClick={(e) => {
-                              e.stopPropagation();
-                              togglePasswordCover();
-                           }}
-                           className="material-icons-round select-none absolute right-3 top-1/2 -translate-y-1/2 text-neutral-60"
-                        >
-                           {passwordCovered ? 'visibility_off' : 'visibility'}
-                        </span>
-                     </div>
+                     <Password placeholder="Password" />
                   </div>
                   <div className="flex">
                      <div className="relative w-fit mr-3">
-                        <input
-                           type="checkbox"
-                           name="tos-agreement"
-                           id="tos-agreement"
-                        />
-                        <div className="checkmark"></div>
+                        <Checkbox />
                      </div>
                      <p>
                         I agree with <Link to="/tos">Terms of Service</Link> and{' '}
@@ -60,9 +37,10 @@ export const Register = () => {
                      </p>
                   </div>
 
-                  <input type="submit" value="Register" />
+                  <Submit value="Register" />
 
-                  <button>Login with Google</button>
+                  <GoogleLoginButton />
+
                   <div className="text-center">
                      Already a Member? <Link to="/login">Login</Link>
                   </div>
